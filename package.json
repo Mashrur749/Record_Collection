@@ -4,7 +4,8 @@
   "description": "web322",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/Mashrur749/web322/issues"
   },
-  "homepage": "https://github.com/Mashrur749/web322#readme"
+  "homepage": "https://github.com/Mashrur749/web322#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "client-sessions": "^0.8.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.16",
+    "pg": "^7.7.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.41.2"
+  }
 }
