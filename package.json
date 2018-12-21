@@ -1,0 +1,19 @@
+{
+  "name": "pla_assignment",
+  "version": "1.0.0",
+  "description": "web322",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mashrur749/web322.git"
+  },
+  "author": "Musaddiqur Rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mashrur749/web322/issues"
+  },
+  "homepage": "https://github.com/Mashrur749/web322#readme"
+}
