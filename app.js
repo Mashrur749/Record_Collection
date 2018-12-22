@@ -1,19 +1,24 @@
-
 var express = require('express');
-var app = express();
+const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
+const albumService = require('./album-service');
 
 var PORT = process.env.PORT || "60000";
 
 app.set('view engine', 'ejs');
 
-app.get('/',function(req, res){
-    res.send('Hello world');
+
+
+app.get('/', function (req, res) {
+    res.render('index.ejs');
 });
 
 
 
-app.listen(PORT, ()=>{
+
+app.listen(PORT, () => {
     console.log(`Server started on port: ${PORT}`);
-})
-
-
+});
