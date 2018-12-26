@@ -56,23 +56,28 @@
                     <label>Rating</label><br>
                     <input type="radio" name="Rating" value="1" <% if(!session.user){%>
                     style="cursor: not-allowed" disabled
-                    <% } %>>
+                    <% } %>
+                    <%if(album.Rating == 1){%> checked="" <%}%>>
                     &nbsp;
                     <input type="radio" name="Rating" value="2" <% if(!session.user){%>
                     style="cursor: not-allowed" disabled
-                    <% } %>>
+                    <% } %>
+                    <%if(album.Rating == 2){%> checked="" <%}%>>
                     &nbsp;
                     <input type="radio" name="Rating" value="3" <% if(!session.user){%>
                     style="cursor: not-allowed" disabled
-                    <% } %>>
+                    <% } %>
+                    <%if(album.Rating == 3){%> checked="" <%}%>>
                     &nbsp;
                     <input type="radio" name="Rating" value="4" <% if(!session.user){%>
                     style="cursor: not-allowed" disabled
-                    <% } %>>
+                    <% } %>
+                    <%if(album.Rating == 4){%> checked="" <%}%>>
                     &nbsp;
-                    <input type="radio" name="Rating" checked="" value="5" <% if(!session.user){%>
+                    <input type="radio" name="Rating"  value="5" <% if(!session.user){%>
                     style="cursor: not-allowed" disabled
-                    <% } %>>
+                    <% } %>
+                    <%if(album.Rating == 5){%> checked="" <%}%>>
                     
                 </div>
 

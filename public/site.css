@@ -1,6 +1,13 @@
-
 .disabled {
     cursor: not-allowed
+}
+
+.jumbotron.home-jumbotron {
+    background-image: url("https://cdn.pixabay.com/photo/2016/06/27/07/30/elvis-presley-1482026_960_720.jpg");
+    text-shadow: 1px 1px 10px  #000000;
+    opacity: .92;
+    color: rgb(255, 255, 255);
+    background-size: cover;
 }
 
 .container.main-container .row:nth-of-type(1) {
@@ -12,6 +19,6 @@
     margin-bottom: 70px;
 }
 
-.btn.btn-danger.pull-right{
+.btn.btn-danger.pull-right {
     margin-right: 5px;
 }
