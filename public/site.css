@@ -1,0 +1,17 @@
+
+.disabled {
+    cursor: not-allowed
+}
+
+.container.main-container .row:nth-of-type(1) {
+    margin-top: 70px;
+}
+
+
+.container.main-container {
+    margin-bottom: 70px;
+}
+
+.btn.btn-danger.pull-right{
+    margin-right: 5px;
+}

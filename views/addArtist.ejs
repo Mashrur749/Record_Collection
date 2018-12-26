@@ -1,0 +1,34 @@
+<% include partials/header %>
+<div class="container main-container">
+        <div class="row">
+<div class="col-md-12">
+    <h2>Add Artist</h2>
+    <hr>
+
+    <form method="POST" action="/addArtist">
+        <div class="form-group col-md-12">
+            <label for="BandName">Artist / Band Name</label>
+            <input type="text" name="BandName" class="form-control" id="BandName">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="MusicGenre">Genre</label>
+            <input type="text" name="MusicGenre" class="form-control" id="MusicGenre">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="YearFormed">Year Formed</label>
+            <input type="text" name="YearFormed" class="form-control" id="YearFormed">
+        </div>
+        <div class="form-group col-md-12">
+             <label for="BandMembers">Band Members</label>
+            <textarea name="BandMembers" class="form-control" id="BandMembers"></textarea>
+        </div>
+        
+        <br><br>
+         <div class="col-md-12">
+            <button type="submit" class="btn btn-primary pull-right">Add Artist / Band</button>
+        </div>
+    </form>
+</div>
+</div>
+    </div>
+<% include partials/footer %>

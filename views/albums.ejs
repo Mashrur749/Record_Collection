@@ -1,0 +1,35 @@
+<% include partials/header %> 
+<div class="container main-container">
+        <div class="row">
+<div class="col-md-12">
+
+    <h2>Albums <%if(session.user){%> <a href="/addAlbum" class="btn btn-success pull-right">Add Album</a> <%}%></h2>
+    <hr>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Year Released</th>
+                <th>Artist</th>
+                <th>Rating</th>
+            </tr>
+            </thead>    
+            <tbody>
+                <%albums.forEach(function(album){%>
+            <tr onclick="location.href='/album/<%=album.AlbumId%>'" style="cursor:pointer">
+                <td><%=album.AlbumName%> </td>
+                <td><%=album.YearReleased %></td>
+                <td><%if(album.Artist){%><%=album.Artist.BandName%><%}%></td>
+                <td><%=album.Rating%> Stars</td>
+            </tr>
+            <%})%>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</div>  
+    </div>
+<%include partials/footer%>

@@ -1,0 +1,77 @@
+<% include partials/header %>
+<div class="container main-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Add Album</h2>
+            <hr>
+
+            <form method="POST" action="/addAlbum">
+                <div class="form-group col-md-12">
+                    <label for="AlbumName">Album Name</label>
+                    <input type="text" name="AlbumName" class="form-control" id="AlbumName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ArtistId">Artist / Band</label>
+                    <select name="ArtistId" class="form-control" id="ArtistId">
+                        <option value="">Select Artist</option>
+                        <%artists.forEach(function(artist){%>
+                        <option value="<%=artist.ArtistId%>">
+                            <%=artist.BandName%>
+                        </option>
+                        <%})%>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="RecordLabel">Record Label</label>
+                    <input type="text" name="RecordLabel" class="form-control" id="RecordLabel">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="CatalogNumber">Catalog Number</label>
+                    <input type="text" name="CatalogNumber" class="form-control" id="CatalogNumber">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="YearReleased">Year Released</label>
+                    <input type="text" name="YearReleased" class="form-control" id="YearReleased">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Rating</label><br>
+                    <input type="radio" name="Rating" value="1">&nbsp;
+                    <input type="radio" name="Rating" value="2">&nbsp;
+                    <input type="radio" name="Rating" value="3">&nbsp;
+                    <input type="radio" name="Rating" value="4">&nbsp;
+                    <input type="radio" name="Rating" value="5">
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="SongList">Song List</label>
+                    <grammarly-ghost spellcheck="false">
+                        <div data-id="e9475f69-c24f-66ab-0124-38be407c92f6" data-gramm_id="e9475f69-c24f-66ab-0124-38be407c92f6"
+                            data-gramm="gramm" data-gramm_editor="true" class="gr_ver_2" gramm="true" contenteditable="true"
+                            style="position: absolute; color: transparent; overflow: hidden; white-space: pre-wrap; border-radius: 4px; box-sizing: border-box; height: 54px; width: 690px; margin: 25px 0px 0px 15px; padding: 6px 12px; z-index: 0; border-width: 1px; border-style: solid; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255); top: 0px; left: 0px;"><span
+                                style="display: inline-block; font: 400 14px/20px &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: transparent; overflow: hidden; text-align: left; float: initial; clear: none; box-sizing: border-box; vertical-align: baseline; white-space: pre-wrap; width: 100%; margin: 0px; padding: 0px; border: 0px; letter-spacing: normal; text-shadow: none; height: 52px;"></span><br></div>
+                    </grammarly-ghost><textarea name="SongList" class="form-control" id="SongList" data-gramm="true"
+                        data-txt_gramm_id="e9475f69-c24f-66ab-0124-38be407c92f6" data-gramm_id="e9475f69-c24f-66ab-0124-38be407c92f6"
+                        spellcheck="false" data-gramm_editor="true" style="z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none 0s ease 0s; background: transparent !important;"></textarea>
+                    <grammarly-btn>
+                        <div class="_1BN1N Kzi1t MoE_1 _2DJZN" style="z-index: 2; transform: translate(674px, 48px);">
+                            <div class="_1HjH7">
+                                <div title="Protected by Grammarly" class="_3qe6h">&nbsp;</div>
+                            </div>
+                        </div>
+                    </grammarly-btn>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="Comments">Comments</label>
+                    <textarea name="comments" class="form-control" id="Comments"></textarea>
+                </div>
+
+                <br><br>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary pull-right">Add Album</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

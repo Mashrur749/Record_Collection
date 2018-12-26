@@ -70,7 +70,7 @@ function initialize() {
             })
             .catch(function (err) {
                 console.log('sequelize sync error: ', err);
-                reject();
+                reject(err);
             })
     })
 }
@@ -78,13 +78,13 @@ function initialize() {
 function getAlbums() {
     return new Promise(function (resolve, reject) {
         Album.findAll()
-            .then(function () {
+            .then(function (data) {
                 console.log('getAlbums Success!');
-                resolve();
+                resolve(data);
             })
             .catch(function (err) {
                 console.log('error finding all albums: ', err);
-                reject();
+                reject(err);
             });
     });
 }
@@ -92,15 +92,15 @@ function getAlbums() {
 function getAlbumsJoin() {
     return new Promise(function (resolve, reject) {
         Album.findAll({
-                include: Album.Artist
+                include: [Album.Artist]
             })
-            .then(function () {
+            .then(function (data) {
                 console.log('getAlbums Success!');
-                resolve();
+                resolve(data);
             })
             .catch(function (err) {
                 console.log('getAlbums failure, err:', err);
-                reject();
+                reject(err);
             })
     });
 }
@@ -112,13 +112,13 @@ function getAlbumById(id) {
                     AlbumId: id
                 }
             })
-            .then(function () {
+            .then(function (data) {
                 console.log('getAlbumById success!');
-                resolve();
+                resolve(data[0]);
             })
             .catch(function (err) {
                 console.log('getAlbumById failure, err:', err);
-                reject();
+                reject(err);
             });
     });
 }
@@ -143,6 +143,7 @@ function addAlbum(data) {
     });
 }
 
+
 function updateAlbumById(id, data) {
     return new Promise(function (resolve, reject) {
         for (var prop in data) {
@@ -161,7 +162,7 @@ function updateAlbumById(id, data) {
                 })
                 .catch(function (err) {
                     console.log('updateAlbumById failure, err: ', err);
-                    reject();
+                    reject(err);
                 });
         }
     });
@@ -180,7 +181,7 @@ function deleteAlbumById(id) {
             })
             .catch(function (err) {
                 console.log(`deleteAlbumById failure, err: ${err}`);
-                reject();
+                reject(err);
             });
     });
 }
@@ -188,13 +189,13 @@ function deleteAlbumById(id) {
 function getArtists() {
     return new Promise(function (resolve, reject) {
         Artist.findAll()
-            .then(function () {
+            .then(function (data) {
                 console.log(`getArtists success!`);
-                resolve();
+                resolve(data);
             })
             .catch(function (err) {
                 console.log(`getArtists failure, err: ${err}`);
-                reject();
+                reject(err);
             })
     });
 }
@@ -205,13 +206,13 @@ function getArtistById(id) {
                 where: {
                     ArtistId: id
                 }
-            }).then(function () {
+            }).then(function (data) {
                 console.log(`getArtistById success!`);
-                resolve();
+                resolve(data[0]);
             })
             .catch(function (err) {
                 console.log(`getArtistById failure, err: ${err}`);
-                reject();
+                reject(err);
             })
     });
 }
@@ -231,7 +232,7 @@ function addArtist(data) {
             })
             .catch(function (err) {
                 console.log('addArtist failure, err:', err);
-                reject();
+                reject(err);
             });
     });
 }
@@ -243,19 +244,17 @@ function updateArtistById(id, data) {
             if (data[prop] == '') {
                 data[prop] = null;
             }
-
             Artist.update(data, {
                     where: {
                         ArtistId: id
                     }
                 })
                 .then(function () {
-                    console.log('updateArtistById success!');
                     resolve();
                 })
                 .catch(function (err) {
                     console.log('updateArtistById failure, err: ', err);
-                    reject();
+                    reject(err);
                 });
         }
     })
@@ -274,7 +273,7 @@ function deleteArtistById(id) {
             })
             .catch(function (err) {
                 console.log(`deleteArtistById failure, err: ${err}`);
-                reject();
+                reject(err);
             })
     });
 }
