@@ -1,3 +1,15 @@
+/*************************************************************************** 
+*WEB322 –PLA Assignment*  
+*I declare that this assignment is my own work in accordance with Seneca Academic Policy.  No part of this
+*  assignment has been copied manually or electronically from any other source (including web sites) or 
+*  distributed to other students.* 
+
+*Name: Musaddiqur Rahman
+*Student ID: 106932189
+*Date: 
+*Online (Heroku) Link: https://obscure-fjord-43423.herokuapp.com/
+****************************************************************************/
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -69,6 +81,9 @@ app.get('/albums', function (req, res) {
                 albums: albums
             });
         })
+        .catch(function (err) {
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        })
 })
 
 
@@ -85,7 +100,17 @@ app.get('/album/:id', function (req, res) {
                                 theArtist: theArtist
                             });
                         })
+                        .catch(function (err) {
+                            res.status(500).send(`An unexpected error occurred: ${err}`);
+                        })
                 })
+
+                .catch(function (err) {
+                    res.status(500).send(`An unexpected error occurred: ${err}`);
+                })
+        })
+        .catch(function (err) {
+            res.status(500).send(`An unexpected error occurred: ${err}`);
         })
 });
 
@@ -95,6 +120,9 @@ app.get('/addAlbum', ensureLogin, function (req, res) {
             res.render('addAlbum', {
                 artists: artists
             })
+        })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
         });
 });
 
@@ -102,6 +130,9 @@ app.post('/addAlbum', ensureLogin, function (req, res) {
     albumService.addAlbum(req.body)
         .then(function () {
             res.redirect('/albums');
+        })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
         });
 });
 
@@ -110,6 +141,9 @@ app.post('/updateAlbum', ensureLogin, function (req, res) {
         .then(function () {
             res.redirect('/albums');
         })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        });
 });
 
 app.get('/deleteAlbum/:id', ensureLogin, function (req, res) {
@@ -117,6 +151,9 @@ app.get('/deleteAlbum/:id', ensureLogin, function (req, res) {
         .then(function () {
             res.redirect('/albums');
         })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        });
 })
 
 
@@ -127,6 +164,9 @@ app.get('/artists', function (req, res) {
                 artists: artists
             })
         })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        });
 });
 
 app.get('/artist/:id', function (req, res) {
@@ -136,6 +176,9 @@ app.get('/artist/:id', function (req, res) {
                 artist: artist
             });
         })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        });
 });
 
 app.get('/addArtist', ensureLogin, function (req, res) {
@@ -146,14 +189,19 @@ app.post('/addArtist', ensureLogin, function (req, res) {
     albumService.addArtist(req.body)
         .then(function () {
             res.redirect('/artists');
-
         })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        });
 })
 
 app.post('/updateArtist', ensureLogin, function (req, res) {
     albumService.updateArtistById(req.body.ArtistId, req.body)
         .then(function () {
             res.redirect('/artists');
+        })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
         });
 });
 
@@ -162,6 +210,9 @@ app.get('/deleteArtist/:id', ensureLogin, function (req, res) {
         .then(function () {
             res.redirect('/artists');
         })
+        .catch(function(err){
+            res.status(500).send(`An unexpected error occurred: ${err}`);
+        });
 });
 
 app.get('/login', function (req, res) {
