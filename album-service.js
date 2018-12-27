@@ -150,22 +150,21 @@ function updateAlbumById(id, data) {
             if (data[prop] == '') {
                 data[prop] = null;
             }
-
-            Album.update(data, {
-                    where: {
-                        AlbumId: id
-                    }
-                })
-                .then(function () {
-                    console.log('updateAlbumById success!');
-                    resolve();
-                })
-                .catch(function (err) {
-                    console.log('updateAlbumById failure, err: ', err);
-                    reject(err);
-                });
         }
-    });
+        Album.update(data, {
+                where: {
+                    AlbumId: id
+                }
+            })
+            .then(function () {
+                console.log('updateAlbumById success!');
+                resolve();
+            })
+            .catch(function (err) {
+                console.log('updateAlbumById failure, err: ', err);
+                reject(err);
+            });
+    })
 }
 
 function deleteAlbumById(id) {

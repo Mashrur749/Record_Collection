@@ -21,7 +21,7 @@
                     <select name="ArtistId" class="form-control" id="ArtistId"<% if(!session.user){ %>
                             disabled
                             <%}%>>
-                        <option value="null">Select Artist</option>
+                        <option value=''>Select Artist</option>
                         <%artists.forEach(function(artist){%>
                         <option value="<%=artist.ArtistId%>" 
                             <% if(theArtist){ if(artist.ArtistId==theArtist.ArtistId) { %> selected="selected"<%}}%>>
