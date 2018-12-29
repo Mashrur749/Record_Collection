@@ -68,6 +68,7 @@ function checkUser(data) {
         User.find({
                 "user": data.userName
             })
+            .exec()
             .then(function (users) {
                 if (users.length == 0) {
                     reject("Unable to find user: ", data.userName);
