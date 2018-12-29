@@ -253,7 +253,6 @@ app.post('/login', function (req, res) {
     userService.checkUser(req.body)
         .then(function () {
             req.session.user = {
-                errorMessage: '',
                 userName: req.body.userName
             };
             res.redirect('/albums');

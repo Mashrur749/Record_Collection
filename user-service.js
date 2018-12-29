@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 let Schema = mongoose.Schema;
 
 
-
+//user schema defined
 var userSchema = new Schema({
     "user": {
         "type": String,
@@ -15,7 +15,7 @@ var userSchema = new Schema({
 
 let User;
 
-
+//mlab database connection
 function initialize() {
     return new Promise(function (resolve, reject) {
         let db = mongoose.createConnection('mongodb://MusaddiqurRahman:asdasd123@ds263989.mlab.com:63989/web322')
@@ -29,19 +29,25 @@ function initialize() {
     })
 }
 
-
+//register user
 function registerUser(data) {
     return new Promise(function (resolve, reject) {
         if (data.password != data.password2) {
+            //password confirmation
             reject("Passwords do not match");
         } else {
+            //generate salt for password
             bcrypt.genSalt(10, function (err, salt) {
+                //password hashing
                 bcrypt.hash(data.password, salt, function (err, hash) {
                     if (err) {
                         reject("error hashing password!");
                     } else {
+                        //assign hash to the password var
                         data.password = hash;
+                        //create user
                         let newUser = new User({user: data.userName, password: data.password});
+                        //save user
                         newUser.save(function (err) {
                             if (err) {
                                 if (err.code == 11000) {
@@ -61,10 +67,10 @@ function registerUser(data) {
     })
 }
 
-
+//user login
 function checkUser(data) {
     return new Promise(function (resolve, reject) {
-        console.log(User);
+        //look for the user
         User.find({
                 "user": data.userName
             })
@@ -73,6 +79,7 @@ function checkUser(data) {
                 if (users.length == 0) {
                     reject("Unable to find user: ", data.userName);
                 } else {
+                    //compare hash with the input password
                     bcrypt.compare(data.password, users[0].password)
                         .then(function (res) {
                             if (res) {

@@ -60,7 +60,7 @@ Album.Artist = Album.belongsTo(Artist, {
     foreignKey: 'ArtistId'
 });
 
-
+//syncing with sequelize database
 function initialize() {
     return new Promise(function (resolve, reject) {
         sequelize.sync()
@@ -89,6 +89,7 @@ function getAlbums() {
     });
 }
 
+//get album and add album-artist in the column
 function getAlbumsJoin() {
     return new Promise(function (resolve, reject) {
         Album.findAll({
