@@ -3,7 +3,8 @@
 }
 
 .jumbotron.home-jumbotron {
-    background-image: url("../assets/vinyl-records-945396_1920.jpg");
+    background: url('https://images.unsplash.com/photo-1508161887025-ebd8f2813550?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
+    background-position: 2em;
     text-shadow: 1px 1px 10px  #000000;
     opacity: .92;
     color: rgb(255, 255, 255);
