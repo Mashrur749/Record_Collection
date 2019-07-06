@@ -1,14 +1,3 @@
-/*************************************************************************** 
-*WEB322 –PLA Assignment*  
-*I declare that this assignment is my own work in accordance with Seneca Academic Policy.  No part of this
-*  assignment has been copied manually or electronically from any other source (including web sites) or 
-*  distributed to other students.* 
-
-*Name: Musaddiqur Rahman
-*Student ID: 106932189
-*Date: 
-*Online (Heroku) Link: https://obscure-fjord-43423.herokuapp.com/
-****************************************************************************/
 
 const express = require('express');
 const app = express();
