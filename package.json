@@ -19,10 +19,10 @@
   "homepage": "https://github.com/Mashrur749/web322#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "client-sessions": "^0.8.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.3.16",
     "pg": "^7.7.1",
